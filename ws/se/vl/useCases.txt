@@ -1,136 +1,280 @@
-《用例分析》（Use Case Analysis）详细讲解
+Software Engineering – Use Cases Summary
+Prof. Dr. Reiner Hähnle | Fachgebiet Software Engineering | 31 October 2025
 
-1. 用例的目的：聚焦“做什么”而非“怎么做”｜第 2–3 页
-软件工程中，需求分析的核心是区分：
-- 问题空间（Problem Space）：用户/客户关心“系统要做什么”（What?）
-- 解决方案空间（Solution Space）：开发团队关心“系统如何实现”（How?）
-✅ 用例（Use Cases）属于问题空间，用于描述用户与系统之间的交互场景（scenarios），强调操作性需求（operational requirements），而非技术实现细节。
-- 需求（Requirements）：通常以声明式（declarative）方式描述功能和约束，从客户视角出发。
-- 用例（Use Cases）：以操作式（operational）方式描述用户目标达成的过程，从用户视角出发。
+===============================================================================
+Page 1
+- Title: Use Cases in Software Engineering (软件工程中的用例)
+- Affiliation: FG Software Engineering (Fachgebiet Software Engineering)
 
-2. 用例的本质与作用｜第 5、8 页
-- 用例是文本故事（text stories），用于发现和记录需求。
-- 它们补充（complement）而非替代需求分析。
-- 用例提供操作性需求，作为系统设计的基础。
-- ⚠️ 用例 ≠ 用户故事（User Stories）：后者是敏捷开发中的轻量级需求表达，通常不包含失败路径或详细流程。
-- ⚠️ 用例不涵盖非功能性需求（non-functional requirements），如性能、安全性等。
+===============================================================================
+Page 2–3
+- Core distinction: "What?" vs "How?"
+  • What? → Problem Space (问题空间): 
+      - Customer/Client (客户) asks: “What system do I want?” “What am I willing to pay?”
+  • How? → Solution Space (解决方案空间): 
+      - Developer asks: “How to build it?”
 
-3. 用例的基本构成｜第 9 页
-- 参与者（Actor）：与系统交互的实体，可以是人、其他系统或组织。
-- 主参与者（Primary Actor）：发起用例、请求系统服务的参与者。
-- 场景（Scenario / Use Case Instance）：一次具体的交互序列，即“一个故事”。
-- 用例（Use Case）：一组相关的成功与失败场景，描述参与者如何通过系统达成目标。
+- Requirements Analysis (需求分析 / “Anforderungen”):
+    • Perspective: Client (客户视角)
+    • Focus: Desired functionality and operational constraints (期望功能与操作约束)
+    • Stated declaratively (以声明式方式表达)
 
-4. 用例的类型｜第 10 页
-（1）按交互粒度分：
-- 黑盒用例（Black Box Use Cases）：
-  - 仅描述系统与外部参与者的交互。
-  - 不暴露内部结构，推荐用于系统级用例。
-- 白盒用例（White Box / Transparent Use Cases）：
-  - 描述系统内部组件间的交互。
-  - 多用于详细设计阶段，不推荐在需求阶段使用。
-（2）按范围分：
-- 企业级用例（Corporate Use Cases）：
-  - 描述业务流程，可能不涉及具体系统。
-  - 通常是白盒的。
-- 系统级用例（System Use Cases）：
-  - 聚焦于被设计系统（system under design）的行为。
-  - 几乎总是黑盒的。
+- Use Case Analysis (用例分析 / “Anwendungsfälle”):
+    • Perspective: User (用户视角)
+    • Focus: Anticipated interaction sequences → Scenarios (预期交互序列 / 场景)
+    • Stated operationally (以操作式方式描述)
 
-5. 用例的格式（三种粒度）｜第 11 页
-- 简要格式（Brief）：
-  - 一段话总结主成功场景。
-- 随意格式（Casual）：
-  - 多段落描述多个场景（如“修改预订”示例）。
-- 完整格式（Fully Dressed）：
-  - 包含所有步骤、变体、前置条件、保证等详细信息。
-💡 精确性（Precision）：描述的详细程度（粒度）。
-💡 准确性（Accuracy）：在给定粒度下，描述是否正确。
+- Validation (验证): “Did we build the intended system?” (我们是否构建了预期的系统？)
 
-6. 完整用例模板（Fully Dressed Use Case）｜第 12–16 页
-（1）基本信息（第 12 页）
-- 用例名称（Use Case Name）：以动词开头（如 “Change Booking”）。
-- 范围（Scope）：企业、系统名或子系统。
-- 层级（Level）：
-  - 用户目标（User Goal）：基本价值单元（最重要）。
-  - 摘要目标（Summary Goal）：多个用户目标的组合。
-  - 子功能（Subfunction）：可复用的辅助步骤。
-- 主参与者（Primary Actor）
-- 利益相关者及其关注点（Stakeholders and Interests）
-（2）保证条件（第 13 页）
-- 前置条件（Preconditions）：用例开始前必须为真的条件（如“用户已认证”）。
-- 最小保证（Minimal Guarantee）：即使失败，系统也必须做到的最低承诺（如“记录所有操作日志”）。
-- 成功保证（Success Guarantee）：成功完成后必须满足的条件（如“显示所有可用汽车”）。
-（3）场景描述（第 14、16 页）
-- 主成功场景（Main Success Scenario）：
-  - 编号步骤列表，描述达成目标的标准路径。
-  - 第一步通常是触发器（trigger）。
-- 扩展（Extensions）：
-  - 描述替代路径或失败处理。
-  - 格式：2.a 表示对主场景第 2 步的变体。
-- 其他部分：
-  - 特殊需求（Special Requirements）：相关的非功能性需求。
-  - 技术与数据变体（Technology and Data Variation List）
-  - 发生频率（Frequency of Occurrence）
-  - 杂项（Miscellaneous）：如未决问题。
+===============================================================================
+Page 5
+- User involvement is essential (用户参与至关重要):
+    • “Impossible to write good/complete use cases without user involvement.”
 
-7. 用例开发指南｜第 20–21 页
-推荐工作流程：
-1. 列出所有参与者及其目标 → 得到功能需求初稿。
-2. 为每个用例编写利益相关者、触发器和主成功场景 → 验证是否满足关键利益。
-3. 识别所有失败条件（不要与处理逻辑混合）。
-4. 编写失败处理逻辑。
-写作建议：
-- 早期阶段避免描述用户界面（Keep the user interface out）。
-- 写黑盒用例：描述“系统做什么”，而非“如何做”。
-  - ✅ “系统记录预订。”
-  - ❌ “系统将预订写入数据库。”
-- 从参与者目标出发：关注用户认为有价值的成果。
-- 编写良好用例可能需要数周时间。
+- Common misconception (常见误解):
+    • Software cost ≈ development cost → False!
+    • Must include manufacturing and maintenance costs.
 
-8. 有效用例的判断标准｜第 22–24 页
-一个有效的用例应是一个基本业务过程（Elementary Business Process, EBP），满足：
-1. 由单一利益相关者在单一地点、单一时间执行；
-2. 模拟一个业务事件；
-3. 提供可衡量的业务价值；
-4. 使系统数据保持一致状态；
-5. 不是场景中的单一步骤（通过“大小测试”）。
-示例分析：
-- “Negotiate a supplier contract” ❌ 太复杂，非 EBP。
-- “Handle returned sale” ✅ 有效用例。
-- “Log in” ❌ 通常是子用例，不直接提供业务价值。
-- “Move piece on game board” ❌ 单一步骤，太小。
+- Budget recommendation:
+    • Allocate 30–50% of development budget to client side (客户侧)
+    • For: Requirements/Use Case Analysis + Validation (需求/用例分析与验证)
+    • Plus ongoing maintenance budget.
 
-9. UML 用例图（Use Case Diagrams）｜第 25–28 页
-- UML（Unified Modeling Language）是一种用于软件建模的可视化语言。
-- 用例图（Use Case Diagram）包含：
-  - 系统边界（System Boundary）
-  - 参与者（Actors，用小人图标或 «actor» 标注）
-  - 用例（椭圆）
-- 用例图是极简主义（minimalist）的，主要用于：
-  - 改善沟通与理解
-  - 减少文本重复
-- ⚠️ 用例图不影响系统行为或需求，仅用于组织。
-- ⚠️ 不适合表示完整格式用例（Fully Dressed Use Cases）。
+===============================================================================
+Page 6
+- The CaSh Case Study (CaSh 案例研究):
+  Main Roles & Functionalities (derived during requirements analysis):
+    • Customer (客户):
+        - General Authentication (通用认证)
+        - Check availability (检查可用性)
+        - Request booking (请求预订)
+        - Change booking (修改预订)
+    • Administrator (管理员):
+        - Add/change new cars, rental locations (增改车辆与租赁点)
+    • Billing System (账单系统)
+    • Service Person (服务人员):
+        - Take out vehicle for service (将车辆送修)
 
-10. UML 用例关系｜第 29–34 页
-（1）«include» 关系｜第 29–30 页
-- 用于提取多个用例的公共行为。
-- 被包含的用例总是执行。
-- 示例：多个用例都包含“Cancel Booking”。
-（2）«extend» 关系｜第 31–32 页
-- 在特定条件下扩展基础用例的行为。
-- 需要定义扩展点（Extension Points）。
-- ⚠️ 破坏模块性，因为扩展用例需了解基础用例内部。
-- ⚠️ 大多数扩展不符合 EBP，应谨慎使用。
-（3）用例继承｜第 33 页
-- 如 “Authenticate via Password” 继承 “Authenticate”。
-- ⚠️ 不推荐使用：属于过早设计决策，使图混乱。
+===============================================================================
+Page 7
+- Text Story Example: “Change Existing Booking” (修改现有预订)
+  Scenario (场景):
+    1. Authenticated customer selects a booking to change.
+    2. System displays booking details (including adjacent reservations).
+    3. Customer can:
+        - Change reserved duration (更改租期), or
+        - Cancel reservation (取消预订).
+    4. If new duration entered → system checks availability (检查可用性).
+        - If available → records change.
+        - If not → shows information message (信息消息), no change.
+    5. If canceled → booking is removed (删除预订).
+    6. Before any change → incurred cost displayed (显示费用) + confirmation requested (请求确认).
+    7. After change → confirmation message sent to preferred contact (发送确认消息).
 
-11. 总结与警示｜第 35 页
-- 最大危险：将用例图用于系统设计（而非需求分析）。
-- 用例属于问题空间，用于记录行为需求。
-- 用户参与至关重要。
-- 粒度要合适：必须是基本业务过程（EBP），而非单一步骤。
-- 优先使用黑盒、简洁描述。
-- 完整用例应使用模板文本，而非图表。
+  Highlights:
+    • Main success path (主成功路径)
+    • Failure handling (失败处理)
+    • Side effect control (副作用控制)
+
+===============================================================================
+Page 8
+- Use Cases are:
+    • Text stories used to discover and record requirements (用于发现和记录需求的文本故事)
+    • Complement requirements analysis (补充需求分析)
+    • Provide operational requirements as basis for system design (提供操作性需求作为设计基础)
+
+- Important distinctions:
+    • Use cases ≠ User Stories (用户故事) — latter from Agile Software Development (敏捷软件开发)
+    • Use cases do NOT replace requirements analysis — they do not capture non-functional requirements (无法捕获非功能性需求)
+
+===============================================================================
+Page 9
+- Constituents of Use Cases (用例组成要素):
+    • Actor (“Akteur”): A person, computer system, or organization with behavior (具有行为的实体)
+    • Primary Actor (主参与者): Initiates the use case; requests service from system (发起用例并请求服务)
+    • Scenario (场景 / use case instance): Specific sequence of actions and interactions between actors and system
+    • Use Case (用例): Collection of related success and failure scenarios describing how an actor uses the system to achieve a goal
+
+===============================================================================
+Page 10
+- Kinds of Use Cases:
+  1. White Box (“Transparent”) vs Black Box (白盒 vs 黑盒):
+      • White Box: Shows internal interactions (展示内部交互)
+      • Black Box: Only describes interactions with external actors (仅描述与外部参与者的交互) → Preferred
+  2. Corporate (“geschäftlich”) vs System (企业级 vs 系统级):
+      • Corporate Use Case: Describes business process (often without mentioning system)
+      • System Use Case: Described with respect to the system under design
+  - Default:
+      • Corporate → usually white box
+      • System → mostly black box
+
+===============================================================================
+Page 11
+- Use Case Formats (用例格式):
+    • Brief (“kurz”): Terse one-paragraph summary, usually main success scenario
+    • Casual (“informell”): Informal paragraph format covering multiple scenarios (e.g., “Change Booking”)
+    • Fully Dressed (“ausgearbeitet”): All steps and variations in detail + supporting sections
+
+- Precision vs Accuracy:
+    • Precision (“Detaillierungsgrad”): Level of detail (细节程度)
+    • Accuracy (“Zutreffendheit”): Correctness given the level of detail (在给定细节下的正确性)
+
+===============================================================================
+Pages 12–13
+- Template for Fully Dressed Use Case (完整式用例模板):
+
+  Part I:
+    • Use Case Name: Start with verb (e.g., “Accomplish this task”)
+    • Scope (“Umfang”): Corporate / System (name) / Subsystem → defines system boundaries
+    • Level (“Ebene”):
+        - User Goal (用户目标): Elementary goal that produces value
+        - Summary Goal (摘要目标): Context or table of contents for lower-level use cases
+        - Subfunction (子功能): Reusable part of a user goal
+    • Primary Actor: Who initiates the use case
+    • Stakeholders and Interests (“Teilhaber”): Who cares? What do they want? (e.g., Customer, Company, Regulatory Agency)
+
+  Part II – Guarantees:
+    • Preconditions (“Vorbedingungen”): Must be true at start & worth telling (e.g., “User authenticated”)
+    • Minimal Guarantee: Fewest promises if goal fails (e.g., “System logged all steps”)
+    • Success Guarantee: Must be true on success & worth telling (satisfies stakeholder interests)
+
+===============================================================================
+Pages 14–16
+- Part III – Scenarios:
+    • Main Success Scenario: Numbered list of steps; first step = trigger
+    • Extensions: Alternative/failure paths referenced by step (e.g., 2.a, 2.a.1…)
+        - Format:
+            2.a <condition>
+            2.a.1 <step 1 of handling>
+            2.a.2 <step 2 of handling> …
+
+  Additional Sections:
+    • Special Requirements: Related non-functional requirements
+    • Technology and Data Variation List: Different I/O methods or data formats
+    • Frequency of Occurrence: Influences testing & implementation timing
+    • Miscellaneous: Open issues, etc.
+
+===============================================================================
+Pages 17–19
+- Example: “List Available Cars” (列出可用汽车)
+
+  Part I:
+    • Name: List Available Cars
+    • Scope: CaSh Booking Module
+    • Level: User Goal
+    • Primary Actor: CaSh Customer
+    • Stakeholders:
+        - Customer: Wants cars for given duration/location
+        - Company: Wants accurate offer
+    • Precondition: Customer is authenticated
+    • Minimal Guarantee: No side effects
+    • Success Guarantee: All matching cars displayed
+
+  Part II – Main Success Scenario:
+    1. Customer wants to know if suitable car exists
+    2. Enters address or uses location service
+    3. Enters reservation period
+    4. System validates time period
+    5. Selects car class
+    6. System finds matching options
+    7. Displays results
+
+  Part III – Extensions:
+    3.a End date ≤ start date → 3.a.1 Ask for non-empty period
+    5.a Session times out → 5.a.1 Log out customer
+    7.a No result → 
+        7.a.1 Include one class higher/lower
+        7.a.2 Include partial overlap
+        7.a.3 Suggest increasing location distance
+
+===============================================================================
+Pages 20–21
+- Guidelines for Developing Use Cases:
+  • Proceed incrementally, top-down
+  • Recommended workflow:
+      1. List actors & their goals → 1st precision level
+      2. Write stakeholders, trigger, main success scenario → 2nd level
+      3. Identify ALL failure conditions
+      4. Write failure handling (do NOT mix with step 3!)
+
+  Early Writing Tips:
+    • Keep user interface out → Focus on intent (聚焦意图)
+    • Write terse use cases (简洁)
+    • Write black box use cases:
+        ✓ “The system records the booking.”
+        ✗ “The system writes to a database.”
+    • Take actor-goal perspective: What outcome is valuable to the actor?
+    • Good use cases may take weeks to write.
+
+===============================================================================
+Pages 22–24
+- Valid Use Case = Elementary Business Process (EBP) (基本业务过程)
+  EBP Criteria:
+    • Performed by one stakeholder
+    • In one place at one time
+    • Well-defined task
+    • Adds measurable business value
+    • Leaves data in consistent state
+
+  Examples:
+    • “Negotiate a supplier contract” → ✗ (too complex)
+    • “Handle returned sale” → ✓ (EBP)
+    • “Log in” → ✗ (usually sub-use case, no direct business value)
+    • “Move piece on game board” → ✗ (single step, fails size test)
+
+===============================================================================
+Pages 25–28
+- UML Use Case Diagrams (UML 用例图):
+  • UML = Unified Modeling Language: Visual, precise design notation
+  • Elements:
+      - System Boundary (系统边界)
+      - Actors (参与者): stick figure or «actor» stereotype
+      - Use Cases (用例): ellipses
+
+  Characteristics:
+    • Intentionally minimalist (有意极简)
+    • Organizational tool → improves communication, reduces text duplication
+    • No impact on system behavior or requirements
+    • Black-box view
+    • Helpful in early analysis
+    • Unsuitable for fully dressed use cases
+
+===============================================================================
+Pages 29–34
+- UML Relations:
+  1. «include» Relation:
+      • Factor out common behavior (提取共用行为)
+      • Included use case always executed
+      • Supports decomposition & reuse
+
+  2. «extend» Relation:
+      • Extends base use case under specific condition
+      • Requires explicit extension points → breaks modularity
+      • Most extensions are NOT EBP → should not be separate use cases
+      • Must be well justified
+
+  3. Use Case Inheritance:
+      • DO NOT USE!
+      • Premature design decision → causes clutter
+
+===============================================================================
+Page 35
+- Final Remarks:
+    • Biggest danger: Abusing use case diagrams for system design
+    • Use cases belong to Problem Space (问题空间)
+    • Document behavioral requirements (行为需求)
+    • User involvement is essential
+    • Granularity matters: Must be EBP, not single step
+    • UML diagrams: best for early analysis
+    • For fully dressed use cases: Use template, not diagrams
+    • Stay simple; prefer black box
+
+===============================================================================
+Page 36
+- Literature:
+    • Alistair Cockburn, Writing Effective Use Cases, Addison-Wesley, 2016
+    • Ian Sommerville, Software Engineering, 10th ed., Chap. 4.4, Pearson, 2015
+    • Ulrike Hammerschall & Gerd Beneken, Software Requirements, Chap. 5, Pearson, 2013
+
+===============================================================================
+End of Summary
